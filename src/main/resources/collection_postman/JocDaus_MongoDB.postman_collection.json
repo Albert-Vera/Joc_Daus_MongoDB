@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "4d8685e2-e205-4263-99ca-b6d8f788a1f2",
+		"name": "JocDaus_MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization Mongo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/user?user=admin&password=1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						},
+						{
+							"key": "roles",
+							"value": "ADMIN",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3NjcyLCJleHAiOjE1OTk1NzgyNzJ9.JFNb4l1pQ_Zbk_ltNAzej9NS73qNDexkMw7XVCkPt9qLq-H5_2XEBuHRVJxKn16RflhoIcsPbn6a2PSSZR0Q6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/joc_daus/insert?userName=Albertsa",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"insert"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "Albertsa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User Mongo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/actualizar/44?userName=Perito",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"actualizar",
+						"44"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "Perito"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Mongo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/delete/44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"delete",
+						"44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Plays",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/joc_daus/listPlays/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"listPlays",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Roll Dice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/rollDice/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"rollDice",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Plays",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/deletePlays/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"deletePlays",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking Total Mongo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/rankingMigTotal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"rankingMigTotal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking Winner Mongo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/rankingWinner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"rankingWinner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking Loser Mongo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/joc_daus/rankingLoser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joc_daus",
+						"rankingLoser"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
