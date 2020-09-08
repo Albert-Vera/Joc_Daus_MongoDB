@@ -1,4 +1,4 @@
-package com.springboot.mongo_db.repository.Game;
+package com.springboot.mongo_db.Game;
 
 
 import com.springboot.mongo_db.model.User;
@@ -8,10 +8,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class VerificarDatos {
-    public User verificarDatosUser(User user){
+    public User verificarUserName(User user){
 
         if ( user.getUserName() == null || user.getUserName().length() == 0  ) user.setUserName("ANONIM");
-
+        
         return user;
     }
     public User asignarValoresUser(User user, String str){

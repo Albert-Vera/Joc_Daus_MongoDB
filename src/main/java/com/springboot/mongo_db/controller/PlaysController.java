@@ -3,8 +3,8 @@ package com.springboot.mongo_db.controller;
 
 import com.springboot.mongo_db.model.Plays;
 import com.springboot.mongo_db.model.User;
-import com.springboot.mongo_db.repository.Game.ControlGame;
-import com.springboot.mongo_db.repository.Game.VerificarDatos;
+import com.springboot.mongo_db.Game.ControlGame;
+import com.springboot.mongo_db.Game.VerificarDatos;
 import com.springboot.mongo_db.service.IPlaysMongoService;
 import com.springboot.mongo_db.service.IUserMongoService;
 import com.springboot.mongo_db.service.SequenceGeneratorService;

@@ -1,4 +1,4 @@
-package com.springboot.mongo_db.repository.Game;
+package com.springboot.mongo_db.Game;
 
 
 import com.springboot.mongo_db.model.Plays;

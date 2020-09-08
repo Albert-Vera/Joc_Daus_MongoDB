@@ -1,15 +1,14 @@
 package com.springboot.mongo_db.controller;
 
 import com.springboot.mongo_db.model.User;
-import com.springboot.mongo_db.repository.Game.ControlGame;
-import com.springboot.mongo_db.repository.Game.VerificarDatos;
+import com.springboot.mongo_db.Game.ControlGame;
+import com.springboot.mongo_db.Game.VerificarDatos;
 import com.springboot.mongo_db.service.IUserMongoService;
 import com.springboot.mongo_db.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,11 +38,7 @@ public class UserMongoController {
     }
     @PostMapping("/insert")
     public ResponseEntity<User> insert(@Validated User user)  {
-        // user = controlGame.asignarValoresUser(user);
-
-
-
-        user = verificarDatos.verificarDatosUser(user);
+        user = verificarDatos.verificarUserName(user);
         user = verificarDatos.asignarValoresUser(user, "");
         user.setIdUser(sequenceGenerator.generateSequence(User.SEQUENCE_NAME));
         iUserMongoService.save(user);
