@@ -6,33 +6,27 @@
 	},
 	"item": [
 		{
-			"name": "Authorization Mongo",
+			"name": "Authorization MongoDB",
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:8080/user?user=admin&password=1234",
+					"raw": "localhost:8080/authenticate",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"user"
-					],
-					"query": [
-						{
-							"key": "user",
-							"value": "admin"
-						},
-						{
-							"key": "password",
-							"value": "1234"
-						},
-						{
-							"key": "roles",
-							"value": "ADMIN",
-							"disabled": true
-						}
+						"authenticate"
 					]
 				}
 			},

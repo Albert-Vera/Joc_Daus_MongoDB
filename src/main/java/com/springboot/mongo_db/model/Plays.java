@@ -63,16 +63,7 @@ public class Plays {
     public void setUserMany(User userMany) {
         this.userMany = userMany;
     }
-//    public List<User> getUserManyList() {
-//        return userManyList;
-//    }
-//
-//    public void setUserManyList(User userMany) {
-//        if(this.userManyList == null){
-//            this.userManyList = new ArrayList<>();
-//        }
-//        this.userManyList.add(userMany);
-//    }
+
 
     public int getUserId() {
         return userId;

@@ -12,6 +12,9 @@ import static org.springframework.data.mongodb.core.FindAndModifyOptions.options
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
+/**
+ * Clase para generar un id automaticamente en MongoDB
+ */
 @Service
 public class SequenceGeneratorService {
 
