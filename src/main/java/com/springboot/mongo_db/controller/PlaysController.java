@@ -38,20 +38,6 @@ public class PlaysController {
             return ResponseEntity.ok(playsList);
         }
     }
-//    @PostMapping("rollDice/{idUser}")
-//    public ResponseEntity<Plays> rollDice(@PathVariable int idUser ) throws Exception {
-//        List<User> userList = iUserService.findByIdUser(idUser);
-//        Plays plays = new Plays();
-////        if (result.hasErrors()) {
-////            throw new Exception("No puede haber campos vacios !" );
-////        }
-//        plays = controlGame.rollDice(plays, idUser);
-//        User user =  controlGame.actualizarMarcadorUser(plays, userList);
-//        plays.setIdPlay(sequenceGenerator.generateSequence(Plays.SEQUENCE_PLAYS));
-//        iPlaysService.save(plays);
-//        iUserService.save(user);
-//        return new ResponseEntity<Plays>(plays, HttpStatus.OK);
-//    }
     @PostMapping("rollDice/{idUser}")
     public HashMap<String,Object> rollDice(@PathVariable int idUser ) throws Exception {
         HashMap<String,Object> map = new HashMap<>();
