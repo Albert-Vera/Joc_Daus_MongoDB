@@ -55,7 +55,7 @@ public class PlaysController {
 
         }else{
             map.put("success", false);
-            map.put("User not exist", false);
+            map.put("User not exist", ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE));
         }
         return map;
     }
