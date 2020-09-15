@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -37,19 +38,40 @@ public class PlaysController {
             return ResponseEntity.ok(playsList);
         }
     }
+//    @PostMapping("rollDice/{idUser}")
+//    public ResponseEntity<Plays> rollDice(@PathVariable int idUser ) throws Exception {
+//        List<User> userList = iUserService.findByIdUser(idUser);
+//        Plays plays = new Plays();
+////        if (result.hasErrors()) {
+////            throw new Exception("No puede haber campos vacios !" );
+////        }
+//        plays = controlGame.rollDice(plays, idUser);
+//        User user =  controlGame.actualizarMarcadorUser(plays, userList);
+//        plays.setIdPlay(sequenceGenerator.generateSequence(Plays.SEQUENCE_PLAYS));
+//        iPlaysService.save(plays);
+//        iUserService.save(user);
+//        return new ResponseEntity<Plays>(plays, HttpStatus.OK);
+//    }
     @PostMapping("rollDice/{idUser}")
-    public ResponseEntity<Plays> rollDice(@PathVariable int idUser ) throws Exception {
+    public HashMap<String,Object> rollDice(@PathVariable int idUser ) throws Exception {
+        HashMap<String,Object> map = new HashMap<>();
         List<User> userList = iUserService.findByIdUser(idUser);
-        Plays plays = new Plays();
-//        if (result.hasErrors()) {
-//            throw new Exception("No puede haber campos vacios !" );
-//        }
-        plays = controlGame.rollDice(plays, idUser);
-        User user =  controlGame.actualizarMarcadorUser(plays, userList);
-        plays.setIdPlay(sequenceGenerator.generateSequence(Plays.SEQUENCE_PLAYS));
-        iPlaysService.save(plays);
-        iUserService.save(user);
-        return new ResponseEntity<Plays>(plays, HttpStatus.OK);
+
+        if (userList.size() != 0){
+            Plays plays = new Plays();
+            plays = controlGame.rollDice(plays, idUser);
+            User user =  controlGame.actualizarMarcadorUser(plays, userList);
+            iPlaysService.save(plays);
+            iUserService.save(user);
+
+            map.put("success", true);
+            map.put("roll dice: ", plays);
+
+        }else{
+            map.put("success", false);
+            map.put("User not exist", false);
+        }
+        return map;
     }
     @DeleteMapping("/deletePlays/{userId}")
     public HttpStatus deletePlays(@PathVariable int userId){
