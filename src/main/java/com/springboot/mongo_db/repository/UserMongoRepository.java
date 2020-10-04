@@ -12,7 +12,8 @@ import java.util.Optional;
 
 @Repository
 public class UserMongoRepository implements IUserMongoRepository{
-
+    public void deleteByIdUser(int id){
+    }
     @Override
     public <S extends User> S save(S entity) {
         return null;
@@ -29,7 +30,7 @@ public class UserMongoRepository implements IUserMongoRepository{
     }
 
     @Override
-    public List<User> findByIdUser(Integer id) {
+    public User findByIdUser(Integer id) {
         return findByIdUser(id);
     }
 

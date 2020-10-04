@@ -40,7 +40,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3NjcyLCJleHAiOjE1OTk1NzgyNzJ9.JFNb4l1pQ_Zbk_ltNAzej9NS73qNDexkMw7XVCkPt9qLq-H5_2XEBuHRVJxKn16RflhoIcsPbn6a2PSSZR0Q6A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg2MDgzMCwiaWF0IjoxNjAxODI0ODMwfQ.0VLpfBz_mecQXCPytDTi3holSFiYYiLxoo5zJ9tWwIQ",
 							"type": "string"
 						}
 					]
@@ -70,15 +70,24 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
 				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"nuevo user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:8080/joc_daus/insert?userName=Albertsa",
+					"raw": "localhost:8080/joc_daus/insert",
 					"host": [
 						"localhost"
 					],
@@ -90,7 +99,8 @@
 					"query": [
 						{
 							"key": "userName",
-							"value": "Albertsa"
+							"value": "Marta",
+							"disabled": true
 						}
 					]
 				}
@@ -105,15 +115,24 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg2MDgzMCwiaWF0IjoxNjAxODI0ODMwfQ.0VLpfBz_mecQXCPytDTi3holSFiYYiLxoo5zJ9tWwIQ",
 							"type": "string"
 						}
 					]
 				},
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"1\",\n    \"userName\": \"Koala\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/actualizar/44?userName=Perito",
+					"raw": "http://localhost:8080/joc_daus/actualizar/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -122,12 +141,13 @@
 					"path": [
 						"joc_daus",
 						"actualizar",
-						"44"
+						"user"
 					],
 					"query": [
 						{
 							"key": "userName",
-							"value": "Perito"
+							"value": "Perito",
+							"disabled": true
 						}
 					]
 				}
@@ -142,15 +162,24 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
 				},
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/delete/44",
+					"raw": "http://localhost:8080/joc_daus/delete/id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -159,7 +188,7 @@
 					"path": [
 						"joc_daus",
 						"delete",
-						"44"
+						"id"
 					]
 				}
 			},
@@ -173,7 +202,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
@@ -181,15 +210,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/joc_daus/listPlays/2",
+					"raw": "localhost:8080/joc_daus/listplays/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"joc_daus",
-						"listPlays",
-						"2"
+						"listplays",
+						"1"
 					]
 				}
 			},
@@ -203,7 +232,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0NTI3MSwiaWF0IjoxNjAxODA5MjcxfQ.k6957zfvB1vXIVELc0FZp4kPjuZC9Ci-31x2mUSPzHI",
 							"type": "string"
 						}
 					]
@@ -211,7 +240,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/rollDice/2",
+					"raw": "http://localhost:8080/joc_daus/rolldice/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -219,8 +248,8 @@
 					"port": "8080",
 					"path": [
 						"joc_daus",
-						"rollDice",
-						"2"
+						"rolldice",
+						"1"
 					]
 				}
 			},
@@ -234,7 +263,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
@@ -242,7 +271,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/deletePlays/2",
+					"raw": "http://localhost:8080/joc_daus/deleteplays/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -250,8 +279,8 @@
 					"port": "8080",
 					"path": [
 						"joc_daus",
-						"deletePlays",
-						"2"
+						"deleteplays",
+						"7"
 					]
 				}
 			},
@@ -265,7 +294,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
@@ -273,7 +302,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/rankingMigTotal",
+					"raw": "http://localhost:8080/joc_daus/rankingmigtotal",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -281,7 +310,7 @@
 					"port": "8080",
 					"path": [
 						"joc_daus",
-						"rankingMigTotal"
+						"rankingmigtotal"
 					]
 				}
 			},
@@ -295,7 +324,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
@@ -303,7 +332,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/rankingWinner",
+					"raw": "http://localhost:8080/joc_daus/rankingwinner",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -311,7 +340,7 @@
 					"port": "8080",
 					"path": [
 						"joc_daus",
-						"rankingWinner"
+						"rankingwinner"
 					]
 				}
 			},
@@ -325,7 +354,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NTc3ODk3LCJleHAiOjE1OTk1Nzg0OTd9.yPJeDRakmCDrOEz_QAQymJW1FqixXWlUvv7HbI1tSiV27JZeg9KO5cd-ALwHLuCwHHj6kI1aWUQaQYKsS3nb8A",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwMTg0MjUxNywiaWF0IjoxNjAxODA2NTE3fQ.DTsfMBUToQFXSdINSU8OygD6LsnzzvC4CUSam-xGFxs",
 							"type": "string"
 						}
 					]
@@ -333,7 +362,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/joc_daus/rankingLoser",
+					"raw": "http://localhost:8080/joc_daus/rankingloser",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -341,7 +370,7 @@
 					"port": "8080",
 					"path": [
 						"joc_daus",
-						"rankingLoser"
+						"rankingloser"
 					]
 				}
 			},

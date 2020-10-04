@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface IPlaysMongoRepository extends MongoRepository<Plays, Integer> {
 
-    List<Plays>  findAllByUserId(Integer id);
+    List<Plays>  findAllByUserId(int id);
+    Plays findByUserId(int idUser);
 
 }

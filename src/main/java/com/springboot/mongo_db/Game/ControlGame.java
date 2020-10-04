@@ -3,13 +3,15 @@ package com.springboot.mongo_db.Game;
 
 import com.springboot.mongo_db.model.Plays;
 import com.springboot.mongo_db.model.User;
+import com.springboot.mongo_db.service.SequenceGeneratorService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.DecimalFormat;
 import java.util.List;
 
 public class ControlGame {
-    public Plays rollDice(Plays plays, int idUser){
 
+    public Plays rollDice(Plays plays, int idUser){
         plays.setDiceOne( getDiceNumberRandom());
         plays.setDiceTwo( getDiceNumberRandom());
 
@@ -23,18 +25,18 @@ public class ControlGame {
         return (int) (Math.random() * 6 + 1);
     }
 
-    public User actualizarMarcadorUser(Plays plays, List<User> user){
+    public User actualizarMarcadorUser(Plays plays, User user){
         // setPlayWon
         if ( plays.getDiceOne() + plays.getDiceTwo() == 7) {
-            user.get(0).setPlaysWon( user.get(0).getPlaysWon()+1);
+            user.setPlaysWon( user.getPlaysWon()+1);
         }
         //set Counter Plays
-        user.get(0).setCounterPlays( user.get(0).getCounterPlays()+1);
+        user.setCounterPlays( user.getCounterPlays()+1);
         // set Ranking
         DecimalFormat formatter = new DecimalFormat("###,##");
-        double numero =((double)user.get(0).getPlaysWon() / (double)user.get(0).getCounterPlays() *100);
-        user.get(0).setRanking(Double.parseDouble(formatter.format(numero)));
-        return user.get(0);
+        double numero =((double)user.getPlaysWon() / (double)user.getCounterPlays() *100);
+        user.setRanking(Double.parseDouble(formatter.format(numero)));
+        return user;
     }
     public int calcularRankingTotal(List<User> userList){
         int mitgaTotal = 0;

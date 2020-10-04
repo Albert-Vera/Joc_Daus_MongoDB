@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface IUserMongoRepository extends MongoRepository<User, Integer> {
-        List<User> findByIdUser(Integer id);
-
+        public User findByIdUser(Integer id);
+        public void deleteByIdUser( int id);
         }

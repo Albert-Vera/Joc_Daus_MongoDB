@@ -2,6 +2,7 @@ package com.springboot.mongo_db.repository;
 
 import com.springboot.mongo_db.model.Plays;
 import com.springboot.mongo_db.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -120,7 +121,12 @@ public class PlaysMongoRepository implements IPlaysMongoRepository{
     }
 
     @Override
-    public List<Plays> findAllByUserId(Integer id) {
+    public List<Plays> findAllByUserId(int id) {
         return findAllByUserId(id);
+    }
+
+    @Override
+    public Plays findByUserId(int idUser) {
+        return findByUserId(idUser);
     }
 }

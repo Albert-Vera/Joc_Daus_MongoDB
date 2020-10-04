@@ -3,9 +3,11 @@ package com.springboot.mongo_db.service;
 
 import com.springboot.mongo_db.model.Plays;
 import com.springboot.mongo_db.repository.IPlaysMongoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface IPlaysMongoService extends IPlaysMongoRepository {
+@Service
+public interface IPlaysMongoService {
     List<Plays> findAllByUserId(Integer id);
 }

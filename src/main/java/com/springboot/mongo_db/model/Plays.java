@@ -17,7 +17,7 @@ public class Plays {
     private boolean win;
     private int userId;
     @Transient
-    public static final String SEQUENCE_PLAYS = "plays_sequence";
+    public static final String SEQUENCE_PLAYS = "play_sequence";
     @JsonIgnore
     User userMany;
 

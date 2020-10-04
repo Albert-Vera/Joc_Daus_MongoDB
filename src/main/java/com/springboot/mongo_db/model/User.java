@@ -36,6 +36,7 @@ public class User implements Serializable {
 
     public User() {
     }
+
     public User(int idUser, String userName, int counterPlays, double ranking, int playsWon, List<Plays> playsList, String dateRegister) {
         this.idUser = idUser;
         this.userName = userName;
