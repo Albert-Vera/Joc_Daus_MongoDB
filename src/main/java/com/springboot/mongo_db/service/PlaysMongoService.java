@@ -27,4 +27,19 @@ public class PlaysMongoService implements IPlaysMongoService{
     public List<Plays> findAllByUserId(Integer id) {
         return repoPlays.findAllByUserId(id);
     }
+
+    public Plays rollDice(Plays plays, int idUser){
+        plays.setDiceOne( getDiceNumberRandom());
+        plays.setDiceTwo( getDiceNumberRandom());
+
+        if ( plays.getDiceOne() + plays.getDiceTwo() == 7) {
+            plays.setWin(true);
+        }else plays.setWin(false);
+        plays.setUserId(idUser);
+        return plays;
+    }
+    public int getDiceNumberRandom(){
+        return (int) (Math.random() * 6 + 1);
+    }
+
 }

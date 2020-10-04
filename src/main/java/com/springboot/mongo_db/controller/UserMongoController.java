@@ -2,17 +2,13 @@ package com.springboot.mongo_db.controller;
 
 import com.springboot.mongo_db.model.JsonCall;
 import com.springboot.mongo_db.model.User;
-import com.springboot.mongo_db.Game.ControlGame;
-import com.springboot.mongo_db.Game.VerificarDatos;
 import com.springboot.mongo_db.repository.IUserMongoRepository;
-import com.springboot.mongo_db.service.IUserMongoService;
+import com.springboot.mongo_db.service.PlaysMongoService;
 import com.springboot.mongo_db.service.SequenceGeneratorService;
+import com.springboot.mongo_db.service.UserMongoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -25,47 +21,59 @@ public class UserMongoController {
     @Autowired
     private SequenceGeneratorService sequenceGenerator;
 
+    @Autowired
+    UserMongoService userMongoService;
+    @Autowired
+    PlaysMongoService playsMongoService;
 
     @Qualifier("IUserMongoRepository")
     @Autowired
     private IUserMongoRepository iUserMongoRepository;
-    private ControlGame controlGame = new ControlGame();
-    VerificarDatos verificarDatos = new VerificarDatos();
+
     private HashMap<String, Object> map = new HashMap<>();
 
     @GetMapping("/list")
-    public ResponseEntity<List<User>> llistar (){
+    public HashMap<String, Object> llistar (){
+        map.clear();
+
         List<User> userList = iUserMongoRepository.findAll();
         if (userList == null) {
-            return ResponseEntity.notFound().build();
+            map.put("success: ", "false");
+            map.put("message: ", "Database is empty");
         } else {
-            return ResponseEntity.ok(userList);
+            map.put("success: ", "true");
+            map.put("message: ", userList);
         }
+        return map;
     }
     @PostMapping("/insert")
-    public ResponseEntity<User> insert(@RequestBody JsonCall id)  {
+    public HashMap<String, Object> insert(@RequestBody JsonCall id)  {
+        map.clear();
         User user = new User();
 
         try {
-            user.setUserName(verificarDatos.verificarUserName(id.getId()));
-            user = verificarDatos.asignarValoresUser(user, "");
+            user.setUserName(userMongoService.verificarUserName(id.getId()));
+            user = userMongoService.asignarValoresUser(user, "");
             user.setIdUser(sequenceGenerator.generateSequenceUser(User.SEQUENCE_NAME));
             iUserMongoRepository.save(user);
+            map.put("success: ", "true");
+            map.put("message: ", user);
         }catch (Exception e){
-            e.printStackTrace();
+            map.put("success: ", "false");
+            map.put("message: ", "Algo ocurrio...");
         }
-        return new ResponseEntity<User>(user, HttpStatus.OK);
+        return map;
     }
 
     @PutMapping("/actualizar/user")
     public HashMap<String, Object> actualizar(@RequestBody JsonCall jsonCall){
         map.clear();
-        map = verificarDatos.verifyIds(jsonCall.getId(), map);
+        map = userMongoService.verifyIds(jsonCall.getId(), map);
 
         if ( map.size() == 0) {
             User user = new User();
             Optional<User> userOriginal = iUserMongoRepository.findById(Integer.parseInt(jsonCall.getId()));// obtener User original
-            user = verificarDatos.editarUser(userOriginal.get(), user, jsonCall); // Solo modifica el userName
+            user = userMongoService.editarUser(userOriginal.get(), user, jsonCall); // Solo modifica el userName
             iUserMongoRepository.save(user);
             map.put("success: ", "true");
             map.put("message: ", user);
@@ -76,7 +84,7 @@ public class UserMongoController {
     public HashMap<String, Object> deleteUser(@RequestBody JsonCall id){
         map.clear();
         try {
-            map = verificarDatos.verifyIds(id.getId(), map);
+            map = userMongoService.verifyIds(id.getId(), map);
 
             if ( map.size() == 0) {
                 if (iUserMongoRepository.findById(Integer.parseInt(id.getId())).isPresent()) {
@@ -101,7 +109,7 @@ public class UserMongoController {
         map.clear();
         try {
             List<User> userList = iUserMongoRepository.findAll();
-            int percentatge = controlGame.calcularRankingTotal(userList);
+            int percentatge = userMongoService.calcularRankingTotal(userList);
             map.put("success: ", "true");
             map.put("percentatge: ", percentatge);
         }catch (Exception e){
@@ -115,7 +123,7 @@ public class UserMongoController {
         map.clear();
         try{
             List<User> userList = iUserMongoRepository.findAll();
-            User  user = controlGame.rankingLoserWinner(userList, "min");
+            User  user = userMongoService.rankingLoserWinner(userList, "min");
             map.put("success: ", "true");
             map.put("percentatge: ", user);
         }catch (Exception e){
@@ -129,7 +137,7 @@ public class UserMongoController {
         map.clear();
         try {
             List<User> userList = iUserMongoRepository.findAll();
-            User user = controlGame.rankingLoserWinner(userList, "max");
+            User user = userMongoService.rankingLoserWinner(userList, "max");
             map.put("success: ", "true");
             map.put("percentatge: ", user);
         }catch (Exception e){
